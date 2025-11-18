@@ -1,254 +1,31 @@
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Sistema de Votación Electrónica Segura – SVES</title>
-
-  <!-- Tailwind vía CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          colors: {
-            usta: {
-              blue: '#002147',
-              yellow: '#FFD200',
-              red: '#A6192E',
-              white: '#FFFFFF'
-            }
-          }
-        }
-      }
-    }
-  </script>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Pruebas Jira</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body class="bg-slate-50 text-slate-800 dark:bg-slate-900 dark:text-slate-100 scroll-smooth">
+<body class="bg-light">
+  <nav class="navbar navbar-dark bg-dark">
+  <div class="container d-flex justify-content-between">
+    <span class="navbar-brand">Pruebas Jira</span>
 
-  <!-- ================= NAV ================= -->
-  <nav class="sticky top-0 z-50 bg-usta-blue text-white dark:bg-slate-900/95 backdrop-blur border-b border-slate-200 dark:border-slate-700">
-    <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
-      <div class="flex items-center gap-3">
-        <!-- Logo USTA -->
-        <img src="https://www.santototunja.edu.co/images/01-USTATunja/01-USTA-Tunja-Imagenes/escudo.gif"
-             alt="Logo USTA" class="h-10 w-auto">
-        <a href="#" class="font-semibold text-usta-yellow">SVES – USTA</a>
-      </div>
-      <div class="flex items-center gap-5">
-        <a href="#caracteristicas" class="hover:text-usta-yellow">Características</a>
-        <a href="#flujo" class="hover:text-usta-yellow">Cómo funciona</a>
-        <a href="#votacion" class="hover:text-usta-yellow">Votación</a>
-        <a href="#estadisticas" class="hover:text-usta-yellow">Resultados Demo</a>
-        <a href="#faq" class="hover:text-usta-yellow">FAQ</a>
-        <a href="#contacto" class="hover:text-usta-yellow">Contacto</a>
-        <button id="themeBtn"
-                class="text-sm px-3 py-1.5 rounded-lg border border-usta-yellow hover:bg-usta-yellow hover:text-usta-blue transition">
-          Tema
-        </button>
-      </div>
+    <div>
+      <a href="index.html" class="btn btn-light btn-sm text-dark fw-bold me-2">Inicio</a>
+      <a href="segunda_vista.html" class="btn btn-outline-light btn-sm">Segunda Vista</a>
     </div>
-  </nav>
+  </div>
+</nav>
 
-  <!-- ================= HERO ================= -->
-  <header class="bg-usta-blue text-white relative">
-    <div class="max-w-7xl mx-auto px-4 py-20 text-center">
-      <h1 class="text-4xl md:text-6xl font-bold">Sistema de Votación Electrónica Segura</h1>
-      <p class="mt-4 text-lg text-usta-yellow max-w-2xl mx-auto">
-        Transparencia, accesibilidad y seguridad en cada elección de la Universidad Santo Tomás.
-      </p>
-      <a href="#flujo"
-         class="inline-block mt-6 bg-usta-yellow text-usta-blue font-medium px-6 py-3 rounded-xl shadow hover:bg-usta-red hover:text-white transition">
-         Descubre cómo funciona
-      </a>
-    </div>
-  </header>
-
-  <!-- ================= CARACTERÍSTICAS ================= -->
-  <section id="caracteristicas" class="max-w-7xl mx-auto px-4 py-16">
-    <h2 class="text-3xl font-bold mb-10 text-center text-usta-red">Características principales</h2>
-    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      <article class="p-6 bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700">
-        <h3 class="font-semibold text-xl text-usta-blue">Seguridad</h3>
-        <p class="mt-3 text-sm">Cifrado extremo a extremo, autenticación robusta y bitácoras inmutables.</p>
-      </article>
-      <article class="p-6 bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700">
-        <h3 class="font-semibold text-xl text-usta-blue">Accesibilidad</h3>
-        <p class="mt-3 text-sm">Cumple WCAG 2.1 AA garantizando inclusión de todos los votantes.</p>
-      </article>
-      <article class="p-6 bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700">
-        <h3 class="font-semibold text-xl text-usta-blue">Resultados inmediatos</h3>
-        <p class="mt-3 text-sm">Conteo automático, exportación a PDF/Excel y visualización gráfica.</p>
-      </article>
-    </div>
-  </section>
-
-  <!-- ================= FLUJO DE VOTACIÓN ================= -->
-  <section id="flujo" class="bg-slate-100 dark:bg-slate-800 py-16">
-    <div class="max-w-7xl mx-auto px-4 text-center">
-      <h2 class="text-3xl font-bold mb-12 text-usta-red">Cómo funciona el SVES</h2>
-      <div class="grid md:grid-cols-4 gap-8">
-        <div class="p-6 bg-white dark:bg-slate-900 rounded-xl shadow">
-          <span class="text-usta-yellow text-3xl font-bold">1</span>
-          <h3 class="mt-3 font-semibold">Registro</h3>
-          <p class="text-sm mt-2">Validación de identidad con credenciales institucionales.</p>
-        </div>
-        <div class="p-6 bg-white dark:bg-slate-900 rounded-xl shadow">
-          <span class="text-usta-yellow text-3xl font-bold">2</span>
-          <h3 class="mt-3 font-semibold">Candidatos</h3>
-          <p class="text-sm mt-2">Postulación y validación de propuestas de forma transparente.</p>
-        </div>
-        <div class="p-6 bg-white dark:bg-slate-900 rounded-xl shadow">
-          <span class="text-usta-yellow text-3xl font-bold">3</span>
-          <h3 class="mt-3 font-semibold">Votación</h3>
-          <p class="text-sm mt-2">Emisión de voto único, anónimo y confirmado con hash de seguridad.</p>
-        </div>
-        <div class="p-6 bg-white dark:bg-slate-900 rounded-xl shadow">
-          <span class="text-usta-yellow text-3xl font-bold">4</span>
-          <h3 class="mt-3 font-semibold">Resultados</h3>
-          <p class="text-sm mt-2">Conteo automático y publicación en tablas y gráficos exportables.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= CABINA DE VOTACIÓN ================= -->
-  <section id="votacion" class="max-w-4xl mx-auto px-4 py-16">
-    <h2 class="text-3xl font-bold mb-10 text-center text-usta-blue">Cabina de votación</h2>
-    <form id="formVotacion" class="space-y-6">
-      <label class="flex items-center gap-4 p-4 border rounded-xl bg-white dark:bg-slate-800 shadow cursor-pointer hover:ring-2 hover:ring-usta-yellow">
-        <input type="radio" name="candidato" value="Candidato A" class="w-5 h-5 text-usta-blue">
-        <span class="font-medium">Candidato A – Facultad de Ingeniería</span>
-      </label>
-      <label class="flex items-center gap-4 p-4 border rounded-xl bg-white dark:bg-slate-800 shadow cursor-pointer hover:ring-2 hover:ring-usta-yellow">
-        <input type="radio" name="candidato" value="Candidato B" class="w-5 h-5 text-usta-blue">
-        <span class="font-medium">Candidato B – Facultad de Derecho</span>
-      </label>
-      <label class="flex items-center gap-4 p-4 border rounded-xl bg-white dark:bg-slate-800 shadow cursor-pointer hover:ring-2 hover:ring-usta-yellow">
-        <input type="radio" name="candidato" value="Candidato C" class="w-5 h-5 text-usta-blue">
-        <span class="font-medium">Candidato C – Facultad de Psicología</span>
-      </label>
-      <label class="flex items-center gap-4 p-4 border rounded-xl bg-white dark:bg-slate-800 shadow cursor-pointer hover:ring-2 hover:ring-usta-yellow">
-        <input type="radio" name="candidato" value="Voto en blanco" class="w-5 h-5 text-usta-blue">
-        <span class="font-medium">Voto en blanco</span>
-      </label>
-      <div class="text-center">
-        <button type="submit"
-                class="bg-usta-red hover:bg-usta-blue text-white font-bold px-6 py-3 rounded-xl shadow">
-          Confirmar voto
-        </button>
-      </div>
-    </form>
-    <p id="msgConfirmacion" class="mt-6 text-center text-lg font-semibold text-usta-blue hidden">
-      ✅ Tu voto ha sido registrado de manera segura.
+  <main class="container py-5">
+    <h1 class="display-5">Trabajamos con Netlify + GitHub (CI/CD) + Jira</h1>
+   <p>Primer cambio vinculado a Jira</p>
+    
+    <p class="lead">
     </p>
-  </section>
-
-  <!-- ================= ESTADÍSTICAS DEMO ================= -->
-  <section id="estadisticas" class="max-w-7xl mx-auto px-4 py-16">
-    <h2 class="text-3xl font-bold mb-10 text-center text-usta-blue">Resultados Demo</h2>
-    <div class="bg-white dark:bg-slate-800 rounded-xl p-6 shadow max-w-md mx-auto">
-      <canvas id="chartResultados" height="80"></canvas>
-    </div>
-  </section>
-
-  <!-- ================= FAQ ================= -->
-  <section id="faq" class="max-w-5xl mx-auto px-4 py-16">
-    <h2 class="text-3xl font-bold mb-10 text-center text-usta-blue">Preguntas frecuentes</h2>
-    <div class="space-y-4">
-      <details class="bg-white dark:bg-slate-800 rounded-lg p-4 shadow">
-        <summary class="font-semibold cursor-pointer">¿Mi voto es realmente anónimo?</summary>
-        <p class="mt-2 text-sm">Sí, el sistema utiliza hash anónimo para que no se pueda vincular el voto al usuario.</p>
-      </details>
-      <details class="bg-white dark:bg-slate-800 rounded-lg p-4 shadow">
-        <summary class="font-semibold cursor-pointer">¿Puedo votar más de una vez?</summary>
-        <p class="mt-2 text-sm">No, el sistema bloquea cualquier intento de duplicar votos.</p>
-      </details>
-      <details class="bg-white dark:bg-slate-800 rounded-lg p-4 shadow">
-        <summary class="font-semibold cursor-pointer">¿Dónde puedo ver los resultados?</summary>
-        <p class="mt-2 text-sm">Al cierre de la elección se publican en la sección de Resultados y pueden exportarse a PDF/Excel.</p>
-      </details>
-    </div>
-  </section>
-
-  <!-- ================= CONTACTO ================= -->
-  <section id="contacto" class="max-w-2xl mx-auto px-4 pb-20">
-    <div class="bg-white dark:bg-slate-800 rounded-2xl p-6 shadow border border-slate-200 dark:border-slate-700">
-      <h2 class="text-2xl font-semibold text-usta-red">Soporte / Contacto</h2>
-      <form id="contactForm" class="mt-6 grid gap-4">
-        <input name="nombre" required placeholder="Tu nombre"
-               class="border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-900 rounded-lg px-3 py-2" />
-        <input name="email" type="email" required placeholder="Tu email"
-               class="border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-900 rounded-lg px-3 py-2" />
-        <textarea name="mensaje" rows="4" required placeholder="Tu mensaje"
-                  class="border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-900 rounded-lg px-3 py-2"></textarea>
-        <button class="bg-usta-red hover:bg-usta-blue text-white rounded-lg px-4 py-2 w-fit transition">Enviar</button>
-      </form>
-    </div>
-  </section>
-
-  <!-- ================= FOOTER ================= -->
-  <footer class="border-t border-slate-200 dark:border-slate-700 bg-usta-blue text-white">
-    <div class="max-w-7xl mx-auto px-4 py-6 flex items-center justify-between text-sm">
-      <span>© <span id="year"></span> SVES – Universidad Santo Tomás</span>
-      <a class="hover:underline text-usta-yellow" href="#">Política de privacidad</a>
-    </div>
-  </footer>
-
-  <!-- ================= BOTÓN IR ARRIBA ================= -->
-  <button id="btnTop"
-          class="fixed bottom-6 right-6 bg-usta-yellow text-usta-blue font-bold px-3 py-2 rounded-full shadow-lg hidden hover:bg-usta-red hover:text-white transition">
-    ↑
-  </button>
-
-  <!-- ================= SCRIPTS ================= -->
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script>
-    // Dark Mode
-    document.getElementById('themeBtn').addEventListener('click', () => {
-      document.documentElement.classList.toggle('dark');
-    });
-
-    // Año dinámico
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Botón "Ir arriba"
-    const btnTop = document.getElementById('btnTop');
-    window.addEventListener('scroll', () => {
-      btnTop.classList.toggle('hidden', window.scrollY < 200);
-    });
-    btnTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-
-    // Gráfico demo con Chart.js
-    const ctx = document.getElementById('chartResultados');
-    new Chart(ctx, {
-      type: 'doughnut',
-      data: {
-        labels: ['Candidato A', 'Candidato B', 'Voto en blanco'],
-        datasets: [{
-          data: [120, 90, 30],
-          backgroundColor: ['#002147', '#FFD200', '#A6192E']
-        }]
-      },
-      options: { plugins: { legend: { position: 'bottom' } } }
-    });
-
-    // Confirmación de voto
-    const form = document.getElementById('formVotacion');
-    const msg = document.getElementById('msgConfirmacion');
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const candidato = form.candidato.value;
-      if (candidato) {
-        msg.textContent = `✅ Tu voto por "${candidato}" ha sido registrado de manera segura.`;
-        msg.classList.remove('hidden');
-        form.classList.add('pointer-events-none', 'opacity-50');
-      } else {
-        alert("Por favor selecciona una opción antes de confirmar.");
-      }
-    });
-  </script>
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-</html>
+</html> 
+
